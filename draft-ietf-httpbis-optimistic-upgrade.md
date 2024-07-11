@@ -139,6 +139,12 @@ There are now several good examples of designs that prevent the security concern
 
 Future specifications for Upgrade Tokens MUST account for the security issues discussed here and provide clear guidance on how clients can avoid them.
 
+## Use of Request Bodies with Upgrade
+
+With the deprecations noted in this document, all remaining HTTP Upgrade Tokens apply only to GET requests with an empty body.  While HTTP Upgrade is well-defined for requests using any HTTP method, with or without a request body, implementation of Upgrade with a request body may be more difficult.
+
+Future specifications for Upgrade Tokens SHOULD restrict their usage to GET requests if possible, for consistency and simplicity.
+
 # IANA Considerations
 
 This document has no IANA actions.
