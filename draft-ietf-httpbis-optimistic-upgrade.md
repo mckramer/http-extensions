@@ -139,11 +139,13 @@ There are now several good examples of designs that prevent the security concern
 
 Future specifications for Upgrade Tokens MUST account for the security issues discussed here and provide clear guidance on how clients can avoid them.
 
-## Use of Request Bodies with Upgrade
+## Selection of Request Methods with Upgrade
 
-With the deprecations noted in this document, all remaining HTTP Upgrade Tokens apply only to GET requests with an empty body.  While HTTP Upgrade is well-defined for requests using any HTTP method, with or without a request body, implementation of Upgrade with a request body may be more difficult.
+The "HTTP" and "TLS" Upgrade Tokens can be used with any ordinary HTTP Method.  The upgraded protocol continues to provide HTTP semantics, and will convey the response to this HTTP request.
 
-Future specifications for Upgrade Tokens SHOULD restrict their usage to GET requests if possible, for consistency and simplicity.
+The other Upgrade Tokens presently defined do not preserve HTTP semantics, so the method is not relevant.  All of these Upgrade Tokens are specified only for use with the "GET" method.
+
+Future specifications for Upgrade Tokens SHOULD restrict their use to GET requests if the HTTP method is otherwise irrelevant.  This simplifies server implementation and reduces the risk of errors when processing request bodies.
 
 # IANA Considerations
 
